@@ -2,7 +2,7 @@
 
 namespace Atournayre\Helper\Service;
 
-use Atournayre\Helper\Exception;
+use Atournayre\Helper\TypedException;
 use Symfony\Component\HttpFoundation\Exception\SessionNotFoundException;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -19,12 +19,12 @@ class FlashService
     }
 
     /**
-     * @param Exception $exception
+     * @param TypedException $exception
      *
      * @return void
      * @throws \LogicException
      */
-    public function addFromException(Exception $exception)
+    public function addFromException(TypedException $exception)
     {
         $this->add($exception->getType(), $exception->getMessage());
     }

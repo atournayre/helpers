@@ -115,6 +115,9 @@ class Controller extends AbstractController
         ]);
     }
 
+    /**
+     * @throws Exception
+     */
     public function validateForm(FormInterface $form)
     {
         if (!class_exists(EntityValidationHelper::class)) {

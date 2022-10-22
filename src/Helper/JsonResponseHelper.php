@@ -4,7 +4,7 @@ namespace Atournayre\Helper\Helper;
 
 class JsonResponseHelper
 {
-    public static function jsonErreur(string $messageErreur): array
+    public static function erreur(string $messageErreur): array
     {
         return [
             'type' => 'error',
@@ -12,7 +12,7 @@ class JsonResponseHelper
         ];
     }
 
-    public static function jsonSuccess(string $messageSucces, array $data): array
+    public static function succes(string $messageSucces, array $data): array
     {
         return [
             'type' => 'success',

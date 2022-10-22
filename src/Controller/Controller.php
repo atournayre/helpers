@@ -3,6 +3,7 @@
 namespace Atournayre\Helper\Controller;
 
 use Atournayre\EntityValidation\EntityValidationHelper;
+use Atournayre\Helper\Helper\JsonResponseHelper;
 use Atournayre\Helper\TypedException;
 use Atournayre\Helper\FlashMessageHelper;
 use Atournayre\Helper\Service\FlashService;
@@ -100,19 +101,12 @@ class Controller extends AbstractController
 
     public function jsonErreur(string $messageErreur, int $status = 200, array $headers = [], array $context = []): Response
     {
-        return $this->json([
-            'type' => 'error',
-            'message' => $messageErreur,
-        ], $status, $headers, $context);
+        return $this->json(JsonResponseHelper::erreur($messageErreur), $status, $headers, $context);
     }
 
     public function jsonSuccess(string $messageSucces, array $data): Response
     {
-        return $this->json([
-            'type' => 'success',
-            'message' => $messageSucces,
-            'data' => $data,
-        ]);
+        return $this->json(JsonResponseHelper::succes($messageSucces, $data));
     }
 
     /**

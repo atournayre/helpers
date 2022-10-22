@@ -1,6 +1,6 @@
 <?php
 
-namespace Atournayre\Helper;
+namespace Atournayre\Helper\Helper;
 
 class FlashMessageHelper
 {

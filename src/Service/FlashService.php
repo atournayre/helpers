@@ -2,7 +2,7 @@
 
 namespace Atournayre\Helper\Service;
 
-use Atournayre\Helper\TypedException;
+use Atournayre\Helper\Exception\TypedException;
 use Symfony\Component\HttpFoundation\Exception\SessionNotFoundException;
 use Symfony\Component\HttpFoundation\RequestStack;
 

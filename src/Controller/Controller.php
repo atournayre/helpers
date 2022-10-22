@@ -3,9 +3,9 @@
 namespace Atournayre\Helper\Controller;
 
 use Atournayre\EntityValidation\EntityValidationHelper;
+use Atournayre\Helper\Exception\TypedException;
+use Atournayre\Helper\Helper\FlashMessageHelper;
 use Atournayre\Helper\Helper\JsonResponseHelper;
-use Atournayre\Helper\TypedException;
-use Atournayre\Helper\FlashMessageHelper;
 use Atournayre\Helper\Service\FlashService;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;

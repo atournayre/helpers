@@ -41,3 +41,7 @@ services:
     Atournayre\Helper\Twig\Extension\EnumExtension:
       class: Atournayre\Helper\Twig\Extension\EnumExtension
 ```
+
+Pour associer une classe css à l'enum, créer une méthode `css()` dans l'enum et pour chacun des case, définissez la classe css souhaitée.
+
+Cette classe pourra ensuite être utilisée par exemple dans un champ Easy Admin.

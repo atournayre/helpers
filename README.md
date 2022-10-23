@@ -22,6 +22,17 @@ composer require atournayre/helpers
 | TypedException            | Lance des exceptions typées.                                                                  |
 
 ## Configuration
+### FlashService
+```yaml
+# config.services.yaml
+services:
+    Atournayre\Helper\Service\FlashService:
+        class: Atournayre\Helper\Service\FlashService
+        # La section argument est inutile si l'autowiring est activé 
+        arguments:
+          - '@request_stack'
+```
+
 ### EnumExtension
 Pour activer l'extension.
 ```yaml

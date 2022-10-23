@@ -14,8 +14,8 @@ abstract class AbstractExceptionListener
     protected Throwable $throwable;
 
     public function __construct(
-        private readonly RouterInterface $router,
-        private readonly FlashService    $flashService,
+        protected readonly RouterInterface $router,
+        protected readonly FlashService    $flashService,
     ) {
     }
 

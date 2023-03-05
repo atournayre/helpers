@@ -19,7 +19,8 @@
         "symfony/twig-bundle": "^5.4",
         "symfony/validator": "^5.4",
         "doctrine/dbal": "^3.6",
-        "doctrine/orm": "^2.11"
+        "doctrine/orm": "^2.11",
+        "webmozart/assert": "^1.11"
     },
     "require-dev": {
         "symfony/form": "^5.4"

@@ -3,6 +3,7 @@
 namespace Atournayre\Helper\Assert;
 
 use Doctrine\Common\Collections\Collection;
+use Webmozart\Assert\InvalidArgumentException;
 use function sprintf;
 
 class Assert extends \Webmozart\Assert\Assert
@@ -13,6 +14,8 @@ class Assert extends \Webmozart\Assert\Assert
      * @param string $message
      *
      * @return void
+     *
+     * @throws InvalidArgumentException
      */
     public static function isListOf(array $array, string $expectedClass, string $message = ''): void
     {
@@ -27,6 +30,8 @@ class Assert extends \Webmozart\Assert\Assert
      * @param string $message
      *
      * @return void
+     *
+     * @throws InvalidArgumentException
      */
     public static function isMapOf(array $array, string $expectedClass, string $message = ''): void
     {
@@ -41,9 +46,29 @@ class Assert extends \Webmozart\Assert\Assert
      * @param string     $message
      *
      * @return void
+     *
+     * @throws InvalidArgumentException
      */
     public static function isCollectionOf(Collection $collection, string $expectedClass, string $message = ''): void
     {
         static::allIsInstanceOf($collection->toArray(), $expectedClass, $message);
+    }
+
+    /**
+     * @param mixed      $element
+     * @param Collection $collection
+     *
+     * @return void
+     *
+     * @throws InvalidArgumentException
+     */
+    public static function elementTypeMatchFirstElementOfCollection(mixed $element, Collection $collection): void
+    {
+        if ($collection->isEmpty()) {
+            return;
+        }
+
+        $expectedClass = \get_class($collection->first());
+        Assert::isInstanceOf($element, $expectedClass);
     }
 }

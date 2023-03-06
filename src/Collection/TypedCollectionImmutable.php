@@ -22,6 +22,7 @@ class TypedCollectionImmutable
 
     public static function add(Collection $collection, mixed $element): Collection
     {
+        Assert::isList($collection->toArray());
         Assert::elementTypeMatchFirstElementOfCollection($element, $collection);
 
         $collection = clone $collection;
@@ -29,8 +30,14 @@ class TypedCollectionImmutable
         return $collection;
     }
 
-    public static function set(Collection $collection, string $key, mixed $value): Collection
+    public static function set(Collection $collection, string|int $key, mixed $value): Collection
     {
+        if (is_string($key)) {
+            Assert::isMap($collection->toArray(), 'Adding element to collection (list) using string key is not supported.');
+        }
+        if (is_int($key)) {
+            Assert::isList($collection->toArray(), 'Adding element to collection (map) using integer key is not supported.');
+        }
         Assert::elementTypeMatchFirstElementOfCollection($value, $collection);
 
         $collection = clone $collection;

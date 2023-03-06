@@ -23,6 +23,12 @@
         "webmozart/assert": "^1.11"
     },
     "require-dev": {
-        "symfony/form": "^5.4"
+        "symfony/form": "^5.4",
+        "symfony/phpunit-bridge": "^6.2"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Atournayre\\Helper\\Tests\\": "tests/"
+        }
     }
 }
